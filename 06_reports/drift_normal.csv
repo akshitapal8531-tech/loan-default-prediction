@@ -1,0 +1,10 @@
+feature,psi,status
+Age,0.0003,stable
+Income,0.0002,stable
+LoanAmount,0.0005,stable
+CreditScore,0.0003,stable
+MonthsEmployed,0.0003,stable
+NumCreditLines,0.0,stable
+InterestRate,0.0002,stable
+LoanTerm,0.0002,stable
+DTIRatio,0.0002,stable

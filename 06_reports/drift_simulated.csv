@@ -1,0 +1,10 @@
+feature,psi,status
+Age,0.0003,stable
+Income,1.4374,SIGNIFICANT DRIFT
+LoanAmount,0.0005,stable
+CreditScore,0.1378,moderate drift
+MonthsEmployed,0.0003,stable
+NumCreditLines,0.0,stable
+InterestRate,0.8093,SIGNIFICANT DRIFT
+LoanTerm,0.0002,stable
+DTIRatio,0.0002,stable
