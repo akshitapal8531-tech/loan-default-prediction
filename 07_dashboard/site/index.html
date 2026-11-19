@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b18">
+  <meta name="description" content="Explore loan default risk predictions, model explanations and data drift.">
+  <title>LoanLens — Loan Default Risk</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="LoanLens home"><span class="brand-mark">L</span>loan<span>lens</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation"><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="#process">How it works</a>
+        <a href="#checker">Risk checker</a>
+        <a href="#insights">Model insights</a>
+        <a href="#drift">Data drift</a>
+        <a class="nav-cta" href="#checker">Try the model <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-shell" id="home">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="live-dot"></span> LOAN RISK INTELLIGENCE</div>
+        <h1>Predict loan default risk, <span class="gradient-text">explained.</span></h1>
+        <p class="hero-subtitle">A clearer way to understand credit risk. Explore a model prediction, the signals behind it, and how the data is changing.</p>
+        <a class="button button-primary" href="#checker">Explore the risk checker <span aria-hidden="true">↓</span></a>
+        <div class="hero-note"><span class="note-icon">✦</span> Responsible insights. Human decisions.</div>
+      </div>
+      <div class="hero-visual reveal" aria-label="Illustration of loan risk analytics">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-glow"></div>
+        <div class="floating-chip chip-top"><span class="chip-dot"></span> MODEL STATUS <b>ACTIVE</b></div>
+        <div class="dashboard-preview glass-card">
+          <div class="preview-head"><div><span class="muted-label">RISK OVERVIEW</span><strong>Portfolio snapshot</strong></div><span class="preview-menu">•••</span></div>
+          <div class="preview-chart" aria-hidden="true">
+            <div class="chart-lines"><i></i><i></i><i></i><i></i></div>
+            <svg viewBox="0 0 360 142" role="img" aria-label="Decorative rising analytics chart"><defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#9b7bff" stop-opacity=".35"/><stop offset="1" stop-color="#9b7bff" stop-opacity="0"/></linearGradient></defs><path class="chart-area" d="M0 115 C28 110 30 88 58 94 S96 99 118 72 S157 89 180 58 S212 75 238 44 S276 61 297 28 S333 42 360 10 V142 H0Z"/><path class="chart-line" d="M0 115 C28 110 30 88 58 94 S96 99 118 72 S157 89 180 58 S212 75 238 44 S276 61 297 28 S333 42 360 10"/></svg>
+          </div>
+          <div class="preview-foot"><span>DEFAULT RISK TREND</span><strong><span class="trend-arrow">↗</span> Clearer decisions</strong></div>
+        </div>
+        <div class="floating-chip chip-bottom"><span class="sparkle">✦</span> Explainable by design</div>
+      </div>
+      <div class="hero-stats reveal" aria-label="Model at a glance">
+        <div class="stat"><strong><span class="counter" data-target="1">0</span></strong><span class="stat-label">XGBoost model</span></div>
+        <div class="stat"><strong><span class="counter" data-target="75">0</span><span>%</span></strong><span class="stat-label">Approx. ROC AUC</span></div>
+        <div class="stat"><strong><span class="counter" data-target="26">0</span></strong><span class="stat-label">Model features</span></div>
+      </div>
+    </section>
+
+    <section class="section-shell process-section" id="process">
+      <div class="section-heading reveal">
+        <div class="eyebrow">FROM APPLICATION TO INSIGHT</div>
+        <h2>How it <span class="gradient-text">works</span></h2>
+        <p>Four steps turn application details into a clear, explainable risk signal.</p>
+      </div>
+      <div class="steps-grid">
+        <article class="step-card glass-card reveal"><span class="step-number">01</span><div class="step-icon">⌑</div><h3>Application</h3><p>Applicant and loan details give the model a structured view of the request.</p><span class="step-connector" aria-hidden="true">→</span></article>
+        <article class="step-card glass-card reveal"><span class="step-number">02</span><div class="step-icon">⌘</div><h3>Preprocessing</h3><p>Inputs are prepared and aligned with the features used during model training.</p><span class="step-connector" aria-hidden="true">→</span></article>
+        <article class="step-card glass-card reveal"><span class="step-number">03</span><div class="step-icon">◈</div><h3>XGBoost model</h3><p>A trained gradient-boosted model evaluates patterns across the application.</p><span class="step-connector" aria-hidden="true">→</span></article>
+        <article class="step-card glass-card reveal"><span class="step-number">04</span><div class="step-icon">◎</div><h3>Risk score</h3><p>Get a probability estimate, a risk band, and a plain-English next step.</p></article>
+      </div>
+    </section>
+
+    <section class="section-shell checker-section" id="checker">
+      <div class="section-heading reveal">
+        <div class="eyebrow">INTERACTIVE MODEL DEMO</div>
+        <h2>Check a loan's <span class="gradient-text">risk</span></h2>
+        <p>Enter a sample application to see how the model responds. This demo is for exploration, not a lending decision.</p>
+      </div>
+      <div class="checker-layout reveal">
+        <form id="risk-form" class="form-card glass-card">
+          <div class="form-topline">
+            <div><span class="muted-label">APPLICATION PROFILE</span><h3>Applicant details</h3></div>
+            <div class="preset-actions">
+              <button type="button" class="button button-small preset-button" data-preset="safe">Safe applicant</button>
+              <button type="button" class="button button-small preset-button" data-preset="risky">Risky applicant</button>
+            </div>
+          </div>
+          <div class="field-groups">
+            <fieldset class="field-group">
+              <legend><span class="group-icon">◉</span> Personal</legend>
+              <label>Age <input name="Age" type="number" min="18" max="100" step="1" value="35" required></label>
+              <label>Education <select name="Education"><option>High School</option><option selected>Bachelor's</option><option>Master's</option><option>PhD</option></select></label>
+              <label>Marital status <select name="MaritalStatus"><option>Single</option><option selected>Married</option><option>Divorced</option></select></label>
+              <label>Dependents <select name="HasDependents"><option>Yes</option><option selected>No</option></select></label>
+              <label>Credit score <input name="CreditScore" type="number" min="300" max="850" step="1" value="720" required></label>
+            </fieldset>
+            <fieldset class="field-group">
+              <legend><span class="group-icon">⌂</span> Employment</legend>
+              <label>Annual income <span class="input-unit">$</span><input name="Income" type="number" min="0" step="1000" value="85000" required></label>
+              <label>Employment type <select name="EmploymentType"><option selected>Full-time</option><option>Part-time</option><option>Self-employed</option><option>Unemployed</option></select></label>
+              <label>Months employed <input name="MonthsEmployed" type="number" min="0" step="1" value="60" required></label>
+              <label>Mortgage <select name="HasMortgage"><option>Yes</option><option selected>No</option></select></label>
+              <label>Co-signer <select name="HasCoSigner"><option>Yes</option><option selected>No</option></select></label>
+            </fieldset>
+            <fieldset class="field-group">
+              <legend><span class="group-icon">▤</span> Loan details</legend>
+              <label>Loan amount <span class="input-unit">$</span><input name="LoanAmount" type="number" min="0" step="1000" value="18000" required></label>
+              <label>Loan purpose <select name="LoanPurpose"><option>Auto</option><option>Business</option><option>Education</option><option>Home</option><option selected>Other</option></select></label>
+              <label>Interest rate <span class="input-unit">%</span><input name="InterestRate" type="number" min="0" step="0.1" value="8.5" required></label>
+              <label>Loan term <span class="input-unit">months</span><input name="LoanTerm" type="number" min="1" step="1" value="36" required></label>
+              <label>Debt-to-income ratio <input name="DTIRatio" type="number" min="0" max="1" step="0.01" value="0.28" required></label>
+              <label>Number of credit lines <input name="NumCreditLines" type="number" min="0" step="1" value="4" required></label>
+            </fieldset>
+          </div>
+          <div class="form-submit-row">
+            <p><span class="privacy-icon">◇</span> Your application is sent to the local model API.</p>
+            <button type="submit" class="button button-primary submit-button"><span class="submit-label">Estimate risk</span><span class="spinner" aria-hidden="true"></span><span aria-hidden="true">↗</span></button>
+          </div>
+        </form>
+
+        <aside class="result-card glass-card" id="result-card" aria-live="polite">
+          <div class="result-empty" id="result-empty">
+            <div class="empty-art"><span>◎</span><i></i><b></b></div>
+            <span class="muted-label">YOUR RESULT</span>
+            <h3>Ready when you are</h3>
+            <p>Complete an application profile to see an estimated default probability and risk band.</p>
+            <div class="result-disclaimer">Model output is an estimate, not financial advice or a credit decision.</div>
+          </div>
+          <div class="result-content" id="result-content" hidden>
+            <div class="result-heading"><div><span class="muted-label">MODEL ESTIMATE</span><h3>Risk assessment</h3></div><span class="result-sparkle">✦</span></div>
+            <div class="gauge-wrap"><div class="gauge" id="probability-gauge" role="img" aria-label="Default probability 0 percent"><div class="gauge-inner"><strong id="probability-value">0%</strong><span>DEFAULT PROBABILITY</span></div></div></div>
+            <div class="risk-summary"><span class="muted-label">RISK BAND</span><span class="risk-badge" id="risk-badge">—</span></div>
+            <p class="advice" id="risk-advice"></p>
+            <div class="prediction-flag" id="prediction-flag"></div>
+            <div class="result-disclaimer">Model output is an estimate, not financial advice or a credit decision.</div>
+          </div>
+          <div class="api-error" id="api-error" role="alert" hidden><span class="error-icon">!</span><h3>We couldn't reach the model</h3><p>The local prediction API may be offline. Please make sure it is running and try again.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-shell insights-section" id="insights">
+      <div class="section-heading reveal">
+        <div class="eyebrow">UNDERSTAND THE SIGNALS</div>
+        <h2>Model <span class="gradient-text">insights</span></h2>
+        <p>See which features influenced model output across the evaluated applications.</p>
+      </div>
+      <div class="insight-card glass-card reveal">
+        <div class="insight-copy"><span class="insight-icon">✦</span><span class="muted-label">GLOBAL EXPLANATION</span><h3>What drives a prediction?</h3><p>SHAP values show how each feature contributes to model predictions. Features higher in the plot generally have more influence; points to the right increase the prediction, while points to the left decrease it.</p><div class="insight-key"><span><i class="key-dot key-positive"></i> Pushes prediction higher</span><span><i class="key-dot key-negative"></i> Pushes prediction lower</span></div></div>
+        <figure class="shap-figure"><img src="/reports/shap_summary.png" alt="SHAP summary plot showing how application features influence loan default predictions" loading="lazy"><figcaption>SHAP summary · global feature impact</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section-shell drift-section" id="drift">
+      <div class="section-heading reveal">
+        <div class="eyebrow">MODEL MONITORING</div>
+        <h2>Watch the <span class="gradient-text">data drift</span></h2>
+        <p>Population Stability Index (PSI) compares feature distributions over time. Larger values can signal a change worth investigating.</p>
+      </div>
+      <div class="drift-grid">
+        <article class="drift-card glass-card reveal">
+          <div class="drift-card-head"><div><span class="muted-label">REFERENCE DATASET</span><h3>Normal drift</h3></div><span class="status-pill status-stable">Baseline</span></div>
+          <div class="chart-area drift-chart" id="normal-chart" aria-label="PSI bar chart for normal drift"></div>
+          <div class="table-wrap"><table><thead><tr><th>Feature</th><th>PSI</th><th>Status</th></tr></thead><tbody id="normal-table"><tr><td colspan="3" class="table-loading">Loading report…</td></tr></tbody></table></div>
+        </article>
+        <article class="drift-card glass-card reveal">
+          <div class="drift-card-head"><div><span class="muted-label">MONITORING DATASET</span><h3>Simulated drift</h3></div><span class="status-pill status-warning">Scenario</span></div>
+          <div class="chart-area drift-chart" id="simulated-chart" aria-label="PSI bar chart for simulated drift"></div>
+          <div class="table-wrap"><table><thead><tr><th>Feature</th><th>PSI</th><th>Status</th></tr></thead><tbody id="simulated-table"><tr><td colspan="3" class="table-loading">Loading report…</td></tr></tbody></table></div>
+        </article>
+      </div>
+      <p class="drift-note reveal"><span>ⓘ</span> PSI is a monitoring signal, not a standalone measure of model performance. Investigate sustained changes before taking action.</p>
+    </section>
+
+    <section class="closing-cta section-shell reveal">
+      <div><span class="eyebrow">BUILT FOR CLARITY</span><h2>Better insight starts with <span class="gradient-text">understanding.</span></h2></div>
+      <a class="button button-primary" href="#checker">Try the risk checker <span aria-hidden="true">↑</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner"><a class="brand" href="#home"><span class="brand-mark">L</span>loan<span>lens</span></a><p>Built with XGBoost, SHAP and FastAPI</p><a class="github-link" href="https://github.com/" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a><span class="copyright">© 2025 LoanLens · Educational demo</span></div>
+  </footer>
+</body>
+</html>
